@@ -1,4 +1,3 @@
-import axios from "axios";
 export interface Player {
   id: number;
   name: string;
@@ -6,8 +5,11 @@ export interface Player {
 }
 
 export default async function Home() {
-  const players = (await axios.get(`${process.env.BASE_URL}/api/player`))
-    .data as Player[];
+  const res = await fetch(`${process.env.BASE_URL}/api/player`, {
+    headers: { "Content-Type": "application/json" },
+  });
+
+  const players = (await res.json()) as Player[];
   console.log(players);
 
   return (
