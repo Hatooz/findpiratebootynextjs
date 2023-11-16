@@ -1,10 +1,13 @@
-// "use client";
-// import { useEffect } from "react";
-
-import { getPlayers } from "./api/player/route";
+import axios from "axios";
+export interface Player {
+  id: number;
+  name: string;
+  level: number;
+}
 
 export default async function Home() {
-  const players = await getPlayers();
+  const players = (await axios.get(`${process.env.BASE_URL}/api/player`))
+    .data as Player[];
   console.log(players);
 
   return (
