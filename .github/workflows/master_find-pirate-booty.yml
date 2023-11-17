@@ -58,5 +58,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'find-pirate-booty'          
-          package: .
+          package: ./next
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AE756C9D969E47FF862CC090E6C2E38A }}
