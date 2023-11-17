@@ -5,18 +5,17 @@ export interface Player {
 }
 
 export default async function Home() {
-  // const res = await fetch(`${process.env.BASE_URL}/api/player`, {
-  //   headers: { "Content-Type": "application/json" },
-  // });
+  const res = await fetch(`${process.env.BASE_URL}/api/player`, {
+    headers: { "Content-Type": "application/json" },
+  });
 
-  // const players = (await res.json()) as Player[];
+  const players = (await res.json()) as Player[];
   // console.log(players);
 
-  const players = ["Vargen", "Granny", "Trainer"];
   return (
     <>
-      {players.map((player, index) => {
-        return <div key={index}>{player}</div>;
+      {players.map((player) => {
+        return <div key={player.id}>{player.name}</div>;
       })}
     </>
   );
