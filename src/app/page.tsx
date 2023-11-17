@@ -14,6 +14,7 @@ export default async function Home() {
 
   return (
     <>
+      <div>Booty</div>
       {players.map((player) => {
         return <div key={player.id}>{player.name}</div>;
       })}
