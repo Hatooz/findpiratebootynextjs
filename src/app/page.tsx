@@ -7,6 +7,7 @@ export interface Player {
 export default async function Home() {
   const res = await fetch(`${process.env.BASE_URL}/api/player`, {
     headers: { "Content-Type": "application/json" },
+    cache: "no-store",
   });
 
   const players = (await res.json()) as Player[];
